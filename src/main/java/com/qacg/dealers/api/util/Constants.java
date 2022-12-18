@@ -29,9 +29,9 @@ public abstract class Constants implements Serializable {
 
 		private static final long serialVersionUID = 4065241632909696744L;
 		
-		public static final String REQUIRED = "Required value";
+		public static final String REQUIRED = "Valor requerido";
 		
-		public static final String INVALID_FORMAT = "Invalid format";
+		public static final String INVALID_FORMAT = "Formato inválido";
 
 	}
 	
