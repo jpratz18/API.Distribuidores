@@ -40,7 +40,7 @@ public abstract class Constants implements Serializable {
 	
 		private static final long serialVersionUID = 6625317854166974069L;
 
-		public static final String SUCCESS = "Succesful transaction";
+		public static final String SUCCESS = "Successful transaction";
 		
 	}
 
