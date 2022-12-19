@@ -40,5 +40,11 @@ public class UserController {
 	public ResponseEntity<List<UserDTO>> getAll() {
 		return ResponseEntity.ok().body(service.getAll());
 	}
+
+	@GetMapping
+	@PreAuthorize("hasAnyAuthority('root', 'admin')")
+	public ResponseEntity<List<UserDTO>> getAll(int id) {
+		return ResponseEntity.ok().body(service.getId(id));
+	}
 	
 }
