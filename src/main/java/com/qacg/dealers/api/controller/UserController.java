@@ -1,10 +1,12 @@
 package com.qacg.dealers.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +45,11 @@ public class UserController {
 
 	@GetMapping
 	@PreAuthorize("hasAnyAuthority('root', 'admin')")
-	public ResponseEntity<List<UserDTO>> getAll(int id) {
-		return ResponseEntity.ok().body(service.getId(id));
+	public ResponseEntity<UserDTO> get(Long id) {
+		Optional<UserDTO> user = service.getId(id);
+		if (user.isPresent()) {
+			return ResponseEntity.ok(user.get());
+		}
+		return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}	
 }
