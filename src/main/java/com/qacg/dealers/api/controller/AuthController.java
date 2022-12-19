@@ -26,7 +26,7 @@ public class AuthController {
 	@Autowired
 	AuthenticationService service;
 	
-	@PostMapping("/signin")
+	@PostMapping("/Authenticate")
 	public ResponseEntity<LoginResponseDTO> signin(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
 		return ResponseEntity.ok(service.signin(loginRequestDTO));
 	}
