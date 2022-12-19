@@ -45,6 +45,5 @@ public class UserController {
 	@PreAuthorize("hasAnyAuthority('root', 'admin')")
 	public ResponseEntity<List<UserDTO>> getAll(int id) {
 		return ResponseEntity.ok().body(service.getId(id));
-	}
-	
+	}	
 }
