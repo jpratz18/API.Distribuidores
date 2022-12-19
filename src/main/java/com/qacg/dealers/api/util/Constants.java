@@ -32,6 +32,8 @@ public abstract class Constants implements Serializable {
 		public static final String REQUIRED = "REQUIRED VALUE";
 		
 		public static final String INVALID_FORMAT = "INVALID FORMAT";
+		
+		public static final String SUCCESS = "Succesful transaction";
 
 	}
 	
@@ -41,6 +43,8 @@ public abstract class Constants implements Serializable {
 		private static final long serialVersionUID = 6625317854166974069L;
 
 		public static final String SUCCESS = "Successful transaction";
+		
+		public static final String INVALID_FORMAT = "Invalid format";
 		
 	}
 
