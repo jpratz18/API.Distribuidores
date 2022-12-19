@@ -6,9 +6,11 @@ import java.util.Date;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import com.qacg.dealers.api.entity.User;
 import com.qacg.dealers.api.util.Constants;
 
 import lombok.Data;
+import lombok.var;
 
 /**
  * @author Edoardo Cruz
@@ -46,7 +48,21 @@ public class UserDTO implements Serializable {
 	private Date created;
 	
 	private Date updated;
-	
+
+	public UserDTO(Long id, String password, String email, String avatar, Date created, Boolean enabled, String name, String lastname, String phone, Long retries, Date updated) {
+	}
+
+	public UserDTO() {
+
+	}
+
+	public static UserDTO ofEntity(User entity) {
+		var dto = new UserDTO();
+		dto.setId(entity.getId());
+		return dto;
+	}
+
+
 
 }
 

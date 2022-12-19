@@ -5,6 +5,7 @@ package com.qacg.dealers.api.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -59,6 +60,18 @@ public class UserDetailsServiceImpl implements UserService {
 		} catch (DataIntegrityViolationException e) {
 			log.error("User is already registered with that email: ", userDTO.getEmail());
 			throw new BusinessException("User is already registered with that email: " + userDTO.getEmail());
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new BusinessException(e.getMessage());
+		}
+	}
+
+	@Override
+	public Optional<UserDTO> getId(Long id) throws BusinessException {
+		try {
+			Optional<UserDTO> userDTO = repository.findById(id)
+					.map(UserDTO::ofEntity);
+			return userDTO;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new BusinessException(e.getMessage());
